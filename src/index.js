@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App.jsx";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ProductProvider } from "./context";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  //this is the top component, so it should be the one providing infos to the other components
+  <ProductProvider>
+    <Router>
+      <App />
+    </Router>
+  </ProductProvider>,
+
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
